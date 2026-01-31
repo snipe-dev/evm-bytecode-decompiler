@@ -1,11 +1,18 @@
+import { config } from "../config/config.js";
 import { createPublicClient, http, Hex } from "viem";
-import { bsc } from "viem/chains";
-import { MulticallCall } from "./groupcall/calldata.js"
-import { multicall } from "./groupcall/multicall-viem.js";
-import { groupcall } from "./groupcall/groupcall-viem.js";
+import { MulticallCall } from "../groupcall/calldata.js"
+import { multicall } from "../groupcall/multicall-viem.js";
+import { groupcall } from "../groupcall/groupcall-viem.js";
 
 const CONTRACT = "0x925c8Ab7A9a8a148E87CD7f1EC7ECc3625864444";
 const MULTICALL3 = "0xcA11bde05977b3631167028862bE2a173976CA11";
+
+/**
+ * Blockchain client for interacting with BSC
+ */
+const client = createPublicClient({
+    transport: http(config.networks.BSC.rpc),
+});
 
 /**
  * Main test function to compare multicall and groupcall functionality
@@ -18,12 +25,7 @@ const MULTICALL3 = "0xcA11bde05977b3631167028862bE2a173976CA11";
  * 2. In parallel via groupcall (separate calls)
  * Outputs results for performance comparison and revert reason retrieval
  */
-async function main() {
-    const client = createPublicClient({
-        chain: bsc,
-        transport: http("https://bsc-rpc.publicnode.com"),
-    });
-
+async function run() {
     const selectors: Hex[] = [
         "0x06fdde03",
         "0x095ea7b3",
@@ -48,8 +50,6 @@ async function main() {
         "0xdd62ed3e",
         "0xf2fde38b",
     ];
-
-
 
     const calls: MulticallCall[] = selectors.map(selector => ({
         target: CONTRACT,
@@ -93,12 +93,10 @@ async function main() {
             res.revertReason
         );
     });
-
-
-
 }
 
-main().catch(err => {
+// Execute main function with error handling
+run().catch(err => {
     console.error(err);
     process.exit(1);
 });

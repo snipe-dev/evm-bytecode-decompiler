@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "viem": "^2.45.0"
+    "viem": "^2.45.0",
+    "grammy": "^1.39.3"
   },
   "devDependencies": {
     "@types/node": "^25.1.0",

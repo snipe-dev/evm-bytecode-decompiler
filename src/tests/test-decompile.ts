@@ -1,18 +1,15 @@
-import { config } from "./config/config.js";
+import { config } from "../config/config.js";
 import { createPublicClient, http, Hex } from 'viem';
-import { bsc } from "viem/chains";
-import { EVM } from "./modules/evm-opcodes.js";
-import { groupcall } from "./groupcall/groupcall-viem.js";
-import { decodeResp } from "./modules/try-decode-resp.js";
-import { MulticallCall } from "./groupcall/calldata.js";
+import { EVM } from "../modules/evm-opcodes.js";
+import { groupcall } from "../groupcall/groupcall-viem.js";
+import { decodeResp } from "../modules/try-decode-resp.js";
+import { MulticallCall } from "../groupcall/calldata.js";
 
-// Type alias for opcode from EVM module
-type EvmOpcode = ReturnType<EVM['getOpcodes']>[0];
-
-// Blockchain client for interacting with BSC
+/**
+ * Blockchain client for interacting with BSC
+ */
 const client = createPublicClient({
-    chain: bsc,
-    transport: http(config.json_rpc),
+    transport: http(config.networks.BSC.rpc),
 });
 
 /**
@@ -101,20 +98,9 @@ async function run() {
 
     // Parse bytecode and extract opcodes
     const evm = new EVM(bytecode);
-    const opcodes = evm.getOpcodes();
-
-    // Extract PUSH4 selectors from opcodes
-    const push4codes = opcodes
-        .filter((opcode: EvmOpcode) => opcode.name === "PUSH4")
-        .map((opcode: EvmOpcode) =>
-            opcode.pushData ? opcode.pushData.toString("hex") : ""
-        )
-        .filter(hex => hex.length > 0);
 
     // Get unique selectors with 0x prefix
-    const selectorsWith0x = [...new Set(push4codes)]
-        .sort()
-        .map(hex => '0x' + hex);
+    const selectorsWith0x = evm.getSelectors()
 
     // Resolve function signatures for each selector
     const resolvedSelectors: { [key: string]: string | undefined } = {};
@@ -274,4 +260,7 @@ async function run() {
 }
 
 // Execute main function with error handling
-run().catch(console.error);
+run().catch(err => {
+    console.error(err);
+    process.exit(1);
+});

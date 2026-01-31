@@ -57,7 +57,7 @@ export class EVM {
             if (opcodeInfo.name.startsWith('PUSH')) {
                 const pushSize = parseInt(opcodeInfo.name.replace('PUSH', ''), 10);
                 if (pc + pushSize < this.code.length) {
-                    currentOp.pushData = this.code.slice(pc + 1, pc + pushSize + 1);
+                    currentOp.pushData = this.code.subarray(pc + 1, pc + pushSize + 1);
                     pc += pushSize; // Skip the embedded push data
                 }
             }
@@ -66,6 +66,40 @@ export class EVM {
         }
 
         return this.opcodes;
+    }
+
+    /**
+     * Extracts unique 4-byte function selectors (PUSH4) from EVM bytecode.
+     *
+     * Parses opcodes and collects values from `PUSH4` instructions,
+     * which are typically used in Solidity function dispatch logic.
+     *
+     * @returns Array of unique function selectors as hex strings with `0x` prefix
+     */
+    getSelectors(): string[] {
+        const hidden = [
+            '0xffffffff',
+            '0x00000000',
+            '0x4e487b71',
+            '0xad5c4648'
+        ];
+
+        // Parse bytecode and extract opcodes
+        const opcodes = this.getOpcodes();
+
+        // Extract PUSH4 selectors from opcodes
+        const push4codes = opcodes
+            .filter((opcode: EvmOpcode) => opcode.name === "PUSH4")
+            .map((opcode: EvmOpcode) =>
+                opcode.pushData ? opcode.pushData.toString("hex") : ""
+            )
+            .filter(hex => hex.length > 0);
+
+        // Get unique selectors with 0x prefix
+        return [...new Set(push4codes)]
+            .sort()
+            .map(hex => '0x' + hex)
+            .filter(selector => !hidden.includes(selector));
     }
 
     /**
