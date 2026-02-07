@@ -1,16 +1,28 @@
-# EVM Bytecode Decompiler — Real-Time Contract Analysis Without ABI
+<div align="center">
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/snipe-dev/evm-bytecode-decompiler/master/src/assets/logo.png" width="320" alt="EVM Bytecode Decompiler Logo" />
-</p>
+<img src="https://raw.githubusercontent.com/snipe-dev/evm-bytecode-decompiler/master/src/assets/logo.png" width="320" alt="EVM Bytecode Decompiler Logo" />
 
-<p align="center">
-  <strong>Full working Telegram bot available:</strong><br />
-  <a href="https://t.me/eth_decompiler_bot">@eth_decompiler_bot</a><br />
-  <strong>[ SOLIDITY DECOMPILER ]</strong>
-</p>
+<br/>
+<br/>
+Production-grade Bytecode Decompiler Real-Time Contract Analysis
+<br/>
+<br/>
+
+![Last Commit](https://img.shields.io/github/last-commit/snipe-dev/spybot?style=flat-square)
+![Stars](https://img.shields.io/github/stars/snipe-dev/spybot?style=flat-square)
+![Node](https://img.shields.io/badge/node-22+-blue?style=flat-square&logo=node.js)
+![TypeScript](https://img.shields.io/badge/typescript-5.x-blue?style=flat-square&logo=typescript)
+![Users](https://img.shields.io/badge/600%2B-Active%20Users-2ea44f?style=flat-square)
+
+
+### Live Bots
+
+[![ETH Bot](https://img.shields.io/badge/eth_decompiler_bot-2CA5E0?style=flat-square&logo=telegram&logoColor=white)](https://t.me/eth_decompiler_botT)
+
+</div>
 
 ---
+# EVM Bytecode Decompiler — Real-Time Contract Analysis Without ABI
 
 ## Overview
 
@@ -154,7 +166,7 @@ It provides **early visibility** into contract behavior during the most critical
 ---
 
 ## External Resources
-
+* (EVM) bytecode selector extractor: [https://github.com/snipe-dev/evm-selector-extractor](https://github.com/snipe-dev/evm-selector-extractor)
 * Viem documentation: [https://viem.sh](https://viem.sh)
 * OpenChain signature database: [https://docs.sourcify.dev/docs/api](https://docs.sourcify.dev/docs/api)
 * 4byte directory: [https://www.4byte.directory](https://www.4byte.directory)

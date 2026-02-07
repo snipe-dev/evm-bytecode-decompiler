@@ -1,8 +1,8 @@
-import { config } from "../config/config.js";
-import { createPublicClient, http, Hex } from "viem";
-import { MulticallCall } from "../groupcall/calldata.js"
-import { multicall } from "../groupcall/multicall-viem.js";
-import { groupcall } from "../groupcall/groupcall-viem.js";
+import {config} from "../config/config.js";
+import {createPublicClient, Hex, http} from "viem";
+import {MulticallCall} from "../groupcall/calldata.js"
+import {multicall} from "../groupcall/multicall-viem.js";
+import {groupcall} from "../groupcall/groupcall-viem.js";
 
 const CONTRACT = "0x925c8Ab7A9a8a148E87CD7f1EC7ECc3625864444";
 const MULTICALL3 = "0xcA11bde05977b3631167028862bE2a173976CA11";

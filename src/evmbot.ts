@@ -1,17 +1,17 @@
-import { config } from "./config/config.js";
-import { Bot, Context, InputFile } from "grammy";
-import { createPublicClient, http, Address } from "viem";
-import { EVM } from "./modules/evm-opcodes.js";
-import { groupcall } from "./groupcall/groupcall-viem.js";
-import { decodeResp } from "./modules/try-decode-resp.js";
-import { applyDefaults } from "./bot/apply-defaults.js";
-import { MulticallCall } from "./groupcall/calldata.js";
-import { validateEVMAddress } from "./helpers/address-validator.js";
-import { checkContractInNetwork } from "./helpers/network-checker.js";
-import { openchain, fourByte } from "./helpers/signature-resolver.js";
-import { isCallableSignature, extractFunctionName } from "./helpers/contract-utils.js";
-import { detectProxyImplementation } from "./modules/proxy-implementation.js";
-import { START_HELP_BUTTONS, START_HELP_CAPTION } from "./constants/bot-messages.js";
+import {config} from "./config/config.js";
+import {Bot, Context, InputFile} from "grammy";
+import {Address, createPublicClient, http} from "viem";
+import {EVM} from "evm-selector-extractor";
+import {groupcall} from "./groupcall/groupcall-viem.js";
+import {decodeResp} from "./modules/try-decode-resp.js";
+import {applyDefaults} from "./bot/apply-defaults.js";
+import {MulticallCall} from "./groupcall/calldata.js";
+import {validateEVMAddress} from "./helpers/address-validator.js";
+import {checkContractInNetwork} from "./helpers/network-checker.js";
+import {fourByte, openchain} from "./helpers/signature-resolver.js";
+import {extractFunctionName, isCallableSignature} from "./helpers/contract-utils.js";
+import {detectProxyImplementation} from "./modules/proxy-implementation.js";
+import {START_HELP_BUTTONS, START_HELP_CAPTION} from "./constants/bot-messages.js";
 
 /**
  * Bot initialization with global settings

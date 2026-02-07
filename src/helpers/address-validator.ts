@@ -1,4 +1,4 @@
-import { isAddress, getAddress, Address } from "viem";
+import {Address, getAddress, isAddress} from "viem";
 
 /**
  * Validates an EVM address

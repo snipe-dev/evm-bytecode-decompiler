@@ -1,6 +1,6 @@
-import { config } from "../config/config.js";
-import { createPublicClient, http, Address } from 'viem';
-import { detectProxyImplementation } from "../modules/proxy-implementation.js";
+import {config} from "../config/config.js";
+import {Address, createPublicClient, http} from 'viem';
+import {detectProxyImplementation} from "../modules/proxy-implementation.js";
 
 /**
  * Checks contract availability and type for the specified RPC

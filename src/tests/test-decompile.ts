@@ -1,9 +1,9 @@
-import { config } from "../config/config.js";
-import { createPublicClient, http, Hex } from 'viem';
-import { EVM } from "../modules/evm-opcodes.js";
-import { groupcall } from "../groupcall/groupcall-viem.js";
-import { decodeResp } from "../modules/try-decode-resp.js";
-import { MulticallCall } from "../groupcall/calldata.js";
+import {config} from "../config/config.js";
+import {createPublicClient, Hex, http} from 'viem';
+import { EVM } from "evm-selector-extractor";
+import {groupcall} from "../groupcall/groupcall-viem.js";
+import {decodeResp} from "../modules/try-decode-resp.js";
+import {MulticallCall} from "../groupcall/calldata.js";
 
 /**
  * Blockchain client for interacting with BSC

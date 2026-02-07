@@ -1,5 +1,5 @@
-import { PublicClient, Hex } from "viem";
-import { MulticallCall } from "./calldata.js"
+import {Hex, PublicClient} from "viem";
+import {MulticallCall} from "./calldata.js"
 
 /**
  * Executes a group of contract calls in parallel and returns detailed results

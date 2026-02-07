@@ -1,5 +1,5 @@
-import { createPublicClient, http, Address } from "viem";
-import { detectProxyImplementation } from "../modules/proxy-implementation.js";
+import {Address, createPublicClient, http} from "viem";
+import {detectProxyImplementation} from "../modules/proxy-implementation.js";
 
 const zeroAddress = "0x0000000000000000000000000000000000000000" as Address;
 

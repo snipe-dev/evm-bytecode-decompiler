@@ -1,7 +1,7 @@
-import { config } from "../config/config.js";
-import { createPublicClient, http } from 'viem';
-import { EVM } from "../modules/evm-opcodes.js";
-import { detectProxyImplementation } from "../modules/proxy-implementation.js";
+import {config} from "../config/config.js";
+import {createPublicClient, http} from 'viem';
+import { EVM } from "evm-selector-extractor";
+import {detectProxyImplementation} from "../modules/proxy-implementation.js";
 
 /**
  * Blockchain client for interacting with BSC

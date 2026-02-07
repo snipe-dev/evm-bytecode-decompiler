@@ -1,4 +1,4 @@
-import { PublicClient, Hex, Address, getAddress } from "viem";
+import {Address, getAddress, Hex, PublicClient} from "viem";
 
 /**
  * EIP-1967 implementation storage slot.

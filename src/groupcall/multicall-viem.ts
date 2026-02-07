@@ -1,5 +1,5 @@
 import {decodeFunctionResult, encodeFunctionData, Hex, PublicClient} from "viem";
-import { MulticallCall } from "./calldata.js"
+import {MulticallCall} from "./calldata.js"
 
 /**
  * Multicall contract ABI for tryAggregate function
