@@ -8,8 +8,8 @@ Production-grade Bytecode Decompiler Real-Time Contract Analysis
 <br/>
 <br/>
 
-![Last Commit](https://img.shields.io/github/last-commit/snipe-dev/spybot?style=flat-square)
-![Stars](https://img.shields.io/github/stars/snipe-dev/spybot?style=flat-square)
+![Last Commit](https://img.shields.io/github/last-commit/snipe-dev/evm-bytecode-decompiler?style=flat-square)
+![Stars](https://img.shields.io/github/stars/snipe-dev/evm-bytecode-decompiler?style=flat-square)
 ![Node](https://img.shields.io/badge/node-22+-blue?style=flat-square&logo=node.js)
 ![TypeScript](https://img.shields.io/badge/typescript-5.x-blue?style=flat-square&logo=typescript)
 ![Users](https://img.shields.io/badge/600%2B-Active%20Users-2ea44f?style=flat-square)
