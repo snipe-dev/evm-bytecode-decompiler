@@ -1,5 +1,5 @@
 {
-  "bot_token" : "7996465739:AAG6wAeMJIS1ivN6-lGjyI12AJmevpqb1O8",
+  "bot_token" : "tg_bot_token",
   "networks" : {
     "BSC": {
       "rpc": "https://bsc-rpc.publicnode.com"
