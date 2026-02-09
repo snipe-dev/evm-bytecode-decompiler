@@ -1,0 +1,24 @@
+{
+  "bot_token" : "tg_bot_token",
+  "networks" : {
+    "BSC": {
+      "rpc": "https://bsc-rpc.publicnode.com"
+    },
+    "ETH": {
+      "rpc": "https://ethereum-rpc.publicnode.com"
+    },
+    "BASE": {
+      "rpc": "https://base-rpc.publicnode.com"
+    },
+    "ARBI": {
+      "rpc": "https://arbitrum-one-rpc.publicnode.com"
+    },
+    "AVAX": {
+      "rpc": "https://avalanche-c-chain-rpc.publicnode.com"
+    },
+    "BLAST": {
+      "rpc": "https://blast-rpc.publicnode.com"
+    }
+  }
+
+}
